@@ -1,0 +1,9 @@
+{
+  "appName": "LocaleForge",
+  "description": "جدید SaaS تجربات کے لیے localization کا نمائش۔",
+  "openMenu": "مین مینو کھولیں",
+  "themeState": "تھیم: {{theme}}",
+  "emptyState": "کوئی نتیجہ نہیں ملا۔ مختلف تلاش کی کوشش کریں۔",
+  "backHome": "ڈیش بورڈ پر واپس جائیں",
+  "settingsTitle": "ترتیبات"
+}

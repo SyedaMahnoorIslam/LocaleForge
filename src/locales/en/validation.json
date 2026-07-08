@@ -1,0 +1,5 @@
+{
+  "required": "This field is required.",
+  "invalidEmail": "Please use a valid email address.",
+  "minLength": "Use at least 8 characters."
+}

@@ -1,0 +1,9 @@
+{
+  "appName": "LocaleForge",
+  "description": "عرض localization لتجارب SaaS الحديثة.",
+  "openMenu": "فتح القائمة الرئيسية",
+  "themeState": "المظهر: {{theme}}",
+  "emptyState": "لم يتم العثور على نتائج. جرب بحثًا مختلفًا.",
+  "backHome": "العودة إلى لوحة التحكم",
+  "settingsTitle": "الإعدادات"
+}
