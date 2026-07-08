@@ -1,0 +1,1 @@
+const t="LocaleForge",e="モダンなSaaS体験のためのローカライゼーションショーケース。",o="メインメニューを開く",n="テーマ：{{theme}}",a="結果が見つかりませんでした。別の検索をお試しください。",s="ダッシュボードに戻る",c="設定",m={appName:t,description:e,openMenu:o,themeState:n,emptyState:a,backHome:s,settingsTitle:c};export{t as appName,s as backHome,m as default,e as description,a as emptyState,o as openMenu,c as settingsTitle,n as themeState};

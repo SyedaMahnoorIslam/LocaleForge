@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18n, { loadLocaleResources, supportedLanguages } from '../config/i18n';
 import { loadItem, saveItem } from '../utils/storage';
@@ -10,7 +10,7 @@ type I18nContextValue = {
   language: SupportedLanguage;
   direction: 'ltr' | 'rtl';
   timezone: string;
-  currentLocale: typeof localeMap[SupportedLanguage];
+  currentLocale: (typeof localeMap)[SupportedLanguage];
   setLanguage: (language: SupportedLanguage) => Promise<void>;
   setTimezone: (timezone: string) => void;
 };
@@ -24,39 +24,58 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
 
   const [language, setLanguageState] = useState<SupportedLanguage>(storedLanguage);
   const [timezone, setTimezoneState] = useState<string>(storedTimezone);
+  const initialized = useRef(false);
 
   useEffect(() => {
-    // Set initial language if different from current
+    if (initialized.current) return;
+    initialized.current = true;
+
+    // Apply palette for stored language immediately on mount
+    const locale = localeMap[storedLanguage];
+    if (locale?.palette) {
+      applyLocalePalette(locale.palette);
+    }
+
+    // Set initial language
     if (i18nInstance.language !== storedLanguage) {
       void i18nInstance.changeLanguage(storedLanguage);
-      setLanguageState(storedLanguage);
     }
-    // Apply palette for stored language immediately
-    applyLocalePalette(localeMap[storedLanguage]?.palette);
-  }, [storedLanguage, i18nInstance]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Keep document lang/dir in sync
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = localeMap[language].direction;
   }, [language]);
 
-  const setLanguage = async (lng: SupportedLanguage) => {
-    if (lng === language) {
-      return;
-    }
+  const setLanguage = useCallback(
+    async (lng: SupportedLanguage) => {
+      if (lng === language) return;
 
-    await loadLocaleResources(lng);
-    await i18nInstance.changeLanguage(lng);
-    setLanguageState(lng);
-    saveItem('language', lng);
-    // Apply per-locale palette and direction immediately
-    applyLocalePalette(localeMap[lng]?.palette);
-  };
+      await loadLocaleResources(lng);
+      await i18nInstance.changeLanguage(lng);
+      setLanguageState(lng);
+      saveItem('language', lng);
 
-  const setTimezone = (zone: string) => {
+      const locale = localeMap[lng];
+      if (locale?.palette) {
+        applyLocalePalette(locale.palette);
+      }
+
+      // Update timezone to match locale default if user hasn't customized
+      const wasDefault = timezone === localeMap[language].timezone;
+      if (wasDefault) {
+        setTimezoneState(locale.timezone);
+        saveItem('timezone', locale.timezone);
+      }
+    },
+    [language, timezone, i18nInstance],
+  );
+
+  const setTimezone = useCallback((zone: string) => {
     setTimezoneState(zone);
     saveItem('timezone', zone);
-  };
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -67,7 +86,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
       setLanguage,
       setTimezone,
     }),
-    [language, timezone],
+    [language, timezone, setLanguage, setTimezone],
   );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;

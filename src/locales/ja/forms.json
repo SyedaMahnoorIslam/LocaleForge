@@ -1,0 +1,9 @@
+{
+  "emailLabel": "メールアドレス",
+  "emailPlaceholder": "you@example.com",
+  "passwordLabel": "パスワード",
+  "passwordPlaceholder": "パスワードを入力してください",
+  "nameLabel": "フルネーム",
+  "namePlaceholder": "山田太郎",
+  "searchPlaceholder": "プロジェクトを検索..."
+}

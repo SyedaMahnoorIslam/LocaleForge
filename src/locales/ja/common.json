@@ -1,0 +1,9 @@
+{
+  "appName": "LocaleForge",
+  "description": "モダンなSaaS体験のためのローカライゼーションショーケース。",
+  "openMenu": "メインメニューを開く",
+  "themeState": "テーマ：{{theme}}",
+  "emptyState": "結果が見つかりませんでした。別の検索をお試しください。",
+  "backHome": "ダッシュボードに戻る",
+  "settingsTitle": "設定"
+}

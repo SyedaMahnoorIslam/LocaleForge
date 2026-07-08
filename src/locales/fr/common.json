@@ -1,0 +1,9 @@
+{
+  "appName": "LocaleForge",
+  "description": "Une vitrine de localisation pour les expériences SaaS modernes.",
+  "openMenu": "Ouvrir le menu principal",
+  "themeState": "Thème : {{theme}}",
+  "emptyState": "Aucun résultat trouvé. Essayez une recherche différente.",
+  "backHome": "Retour au tableau de bord",
+  "settingsTitle": "Paramètres"
+}

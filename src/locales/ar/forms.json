@@ -1,0 +1,9 @@
+{
+  "emailLabel": "عنوان البريد الإلكتروني",
+  "emailPlaceholder": "you@example.com",
+  "passwordLabel": "كلمة المرور",
+  "passwordPlaceholder": "أدخل كلمة المرور",
+  "nameLabel": "الاسم الكامل",
+  "namePlaceholder": "أحمد محمد",
+  "searchPlaceholder": "ابحث عن المشاريع..."
+}

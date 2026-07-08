@@ -1,0 +1,1 @@
+const i="یہ فیلڈ ضروری ہے",n="براہ کرم ایک درست ای میل ایڈریس درج کریں",a="کم از کم {{min}} حروف ہونے چاہئیں",s="پاس ورڈز مماثل نہیں ہیں",t={required:i,invalidEmail:n,minLength:a,passwordMismatch:s};export{t as default,n as invalidEmail,a as minLength,s as passwordMismatch,i as required};

@@ -1,0 +1,1 @@
+const s="تمت العملية بنجاح",t="تم حفظ الإعدادات",a="تم تغيير اللغة",c="نجح",e="تم حفظ التغييرات بنجاح",n={actionSuccess:s,settingsSaved:t,languageChanged:a,toastSuccess:c,toastSaved:e};export{s as actionSuccess,n as default,a as languageChanged,t as settingsSaved,e as toastSaved,c as toastSuccess};

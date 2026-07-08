@@ -1,0 +1,1 @@
+const e="This field is required.",i="Please use a valid email address.",a="Use at least 8 characters.",s={required:e,invalidEmail:i,minLength:a};export{s as default,i as invalidEmail,a as minLength,e as required};

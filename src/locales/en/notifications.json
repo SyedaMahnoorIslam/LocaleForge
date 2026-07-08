@@ -1,4 +1,7 @@
 {
-  "toastSuccess": "Saved successfully",
-  "toastSaved": "Your changes are now synchronized across locales."
+  "actionSuccess": "Action completed successfully",
+  "settingsSaved": "Settings have been saved",
+  "languageChanged": "Language has been changed",
+  "toastSuccess": "Success",
+  "toastSaved": "Changes have been saved successfully"
 }

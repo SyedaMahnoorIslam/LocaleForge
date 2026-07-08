@@ -1,0 +1,1 @@
+const n="صفحہ نہیں ملا",o="404",t="صفحہ نہیں ملا",e="آپ آف لائن لگتے ہیں",s="اپنے انٹرنیٹ کنکشن کی جانچ کریں",f="دوبارہ کوشش کریں",a={notFound:n,notFoundTitle:o,notFoundMessage:t,offline:e,offlineMessage:s,tryAgain:f};export{a as default,n as notFound,t as notFoundMessage,o as notFoundTitle,e as offline,s as offlineMessage,f as tryAgain};

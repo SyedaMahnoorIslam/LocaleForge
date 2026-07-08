@@ -1,0 +1,1 @@
+const e="Dieses Feld ist erforderlich",i="Bitte geben Sie eine gültige E-Mail-Adresse ein",s="Muss mindestens {{min}} Zeichen lang sein",n="Passwörter stimmen nicht überein",t={required:e,invalidEmail:i,minLength:s,passwordMismatch:n};export{t as default,i as invalidEmail,s as minLength,n as passwordMismatch,e as required};

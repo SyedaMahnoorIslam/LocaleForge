@@ -1,0 +1,8 @@
+{
+  "notFound": "Page non trouvée",
+  "notFoundTitle": "404",
+  "notFoundMessage": "Page non trouvée",
+  "offline": "Vous semblez être hors ligne",
+  "offlineMessage": "Vérifiez votre connexion Internet",
+  "tryAgain": "Réessayer"
+}

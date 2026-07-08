@@ -1,0 +1,6 @@
+{
+  "required": "このフィールドは必須です",
+  "invalidEmail": "有効なメールアドレスを入力してください",
+  "minLength": "最低{{min}}文字必要です",
+  "passwordMismatch": "パスワードが一致しません"
+}

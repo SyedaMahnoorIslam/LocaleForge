@@ -1,0 +1,9 @@
+{
+  "emailLabel": "Adresse e-mail",
+  "emailPlaceholder": "vous@exemple.com",
+  "passwordLabel": "Mot de passe",
+  "passwordPlaceholder": "Entrez votre mot de passe",
+  "nameLabel": "Nom complet",
+  "namePlaceholder": "Jean Dupont",
+  "searchPlaceholder": "Rechercher des projets..."
+}

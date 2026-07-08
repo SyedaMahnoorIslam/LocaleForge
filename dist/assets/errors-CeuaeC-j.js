@@ -1,0 +1,1 @@
+const n="ページが見つかりません",o="404",t="ページが見つかりません",e="オフラインのようです",s="インターネット接続を確認してください",f="再試行",a={notFound:n,notFoundTitle:o,notFoundMessage:t,offline:e,offlineMessage:s,tryAgain:f};export{a as default,n as notFound,t as notFoundMessage,o as notFoundTitle,e as offline,s as offlineMessage,f as tryAgain};

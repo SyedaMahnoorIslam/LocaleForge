@@ -1,0 +1,1 @@
+const s="Action completed successfully",e="Settings have been saved",a="Language has been changed",t="Success",c="Changes have been saved successfully",n={actionSuccess:s,settingsSaved:e,languageChanged:a,toastSuccess:t,toastSaved:c};export{s as actionSuccess,n as default,a as languageChanged,e as settingsSaved,c as toastSaved,t as toastSuccess};

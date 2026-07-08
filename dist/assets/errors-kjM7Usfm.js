@@ -1,0 +1,1 @@
+const n="Seite nicht gefunden",e="404",o="Seite nicht gefunden",t="Sie scheinen offline zu sein",s="Überprüfen Sie Ihre Internetverbindung",i="Erneut versuchen",f={notFound:n,notFoundTitle:e,notFoundMessage:o,offline:t,offlineMessage:s,tryAgain:i};export{f as default,n as notFound,o as notFoundMessage,e as notFoundTitle,t as offline,s as offlineMessage,i as tryAgain};

@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import { CheckCircle2, Info, AlertTriangle, XCircle } from 'lucide-react';
+import { CheckCircle2, Info, AlertTriangle, XCircle, X } from 'lucide-react';
 import clsx from 'clsx';
 
 export type ToastVariant = 'success' | 'warning' | 'error' | 'info';
@@ -21,27 +21,27 @@ const ToastContext = createContext<ToastContextValue | null>(null);
 function getIcon(variant: ToastVariant) {
   switch (variant) {
     case 'success':
-      return <CheckCircle2 size={18} aria-hidden="true" />;
+      return <CheckCircle2 size={20} aria-hidden="true" />;
     case 'warning':
-      return <AlertTriangle size={18} aria-hidden="true" />;
+      return <AlertTriangle size={20} aria-hidden="true" />;
     case 'error':
-      return <XCircle size={18} aria-hidden="true" />;
+      return <XCircle size={20} aria-hidden="true" />;
     case 'info':
     default:
-      return <Info size={18} aria-hidden="true" />;
+      return <Info size={20} aria-hidden="true" />;
   }
 }
 
 function getVariantStyles(variant: ToastVariant) {
   switch (variant) {
     case 'success':
-      return 'from-emerald-50 via-emerald-50 to-emerald-100 text-emerald-900 ring-emerald-200';
+      return 'bg-locale-success-light border-locale-success/20 text-locale-success';
     case 'warning':
-      return 'from-amber-50 via-amber-50 to-amber-100 text-amber-900 ring-amber-200';
+      return 'bg-locale-warning-light border-locale-warning/20 text-locale-warning';
     case 'error':
-      return 'from-rose-50 via-rose-50 to-rose-100 text-rose-900 ring-rose-200';
+      return 'bg-locale-error-light border-locale-error/20 text-locale-error';
     default:
-      return 'from-sky-50 via-sky-50 to-sky-100 text-sky-900 ring-sky-200';
+      return 'bg-locale-accent-light border-locale-primary/20 text-locale-primary';
   }
 }
 
@@ -67,33 +67,34 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   return (
     <ToastContext.Provider value={contextValue}>
       {children}
-      <div className="fixed inset-x-4 bottom-4 z-50 flex flex-col gap-3 sm:right-4 sm:left-auto">
-        <AnimatePresence>
+      <div className="fixed inset-x-4 bottom-4 z-50 flex flex-col gap-3 sm:right-4 sm:left-auto sm:max-w-md">
+        <AnimatePresence mode="popLayout">
           {toasts.map(({ id, title, message, variant }) => (
             <motion.div
               key={id}
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 22 }}
-              transition={{ duration: 0.2 }}
+              layout
+              initial={{ opacity: 0, y: 24, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 24, scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               className={clsx(
-                'rounded-3xl border p-4 shadow-soft ring-1 ring-inset backdrop-blur-sm',
+                'rounded-3xl border-2 p-5 shadow-lang backdrop-blur-md',
                 getVariantStyles(variant),
               )}
             >
               <div className="flex items-start gap-3">
-                <div className="mt-1">{getIcon(variant)}</div>
-                <div>
-                  <p className="font-semibold">{title}</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-700 dark:text-slate-200">{message}</p>
+                <div className="mt-0.5">{getIcon(variant)}</div>
+                <div className="flex-1">
+                  <p className="font-bold">{title}</p>
+                  <p className="mt-1.5 text-sm leading-6 opacity-90">{message}</p>
                 </div>
                 <button
                   type="button"
                   aria-label="Close notification"
-                  className="ml-auto text-slate-500 transition hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+                  className="ml-2 rounded-full p-1 transition-colors hover:bg-black/10"
                   onClick={() => removeToast(id)}
                 >
-                  ×
+                  <X size={18} />
                 </button>
               </div>
             </motion.div>

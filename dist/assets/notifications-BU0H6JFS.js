@@ -1,0 +1,1 @@
+const s="کارروائی کامیابی سے مکمل ہوئی",t="ترتیبات محفوظ کر دی گئی ہیں",a="زبان تبدیل کر دی گئی ہے",c="کامیابی",e="تبدیلیاں کامیابی سے محفوظ ہو گئیں",n={actionSuccess:s,settingsSaved:t,languageChanged:a,toastSuccess:c,toastSaved:e};export{s as actionSuccess,n as default,a as languageChanged,t as settingsSaved,e as toastSaved,c as toastSuccess};

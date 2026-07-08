@@ -25,22 +25,23 @@ export function useLocaleFormat() {
 
   const formatRelative = (date: Date) => {
     const seconds = Math.floor((date.getTime() - Date.now()) / 1000);
-    const intervals = [
+    const intervals: Array<{ unit: Intl.RelativeTimeFormatUnit; value: number }> = [
       { unit: 'day', value: 86400 },
       { unit: 'hour', value: 3600 },
       { unit: 'minute', value: 60 },
       { unit: 'second', value: 1 },
-    ] as const;
+    ];
 
-    const { unit, value } = intervals.reduce(
-      (acc, current) => {
-        if (Math.abs(seconds) >= current.value) {
-          return { unit: current.unit, value: Math.round(seconds / current.value) };
-        }
-        return acc;
-      },
-      { unit: 'second' as const, value: seconds },
-    );
+    let unit: Intl.RelativeTimeFormatUnit = 'second';
+    let value = seconds;
+
+    for (const interval of intervals) {
+      if (Math.abs(seconds) >= interval.value) {
+        unit = interval.unit;
+        value = Math.round(seconds / interval.value);
+        break;
+      }
+    }
 
     return new Intl.RelativeTimeFormat(locale, { numeric: 'auto' }).format(value, unit);
   };

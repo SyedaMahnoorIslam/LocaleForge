@@ -1,0 +1,8 @@
+{
+  "notFound": "ページが見つかりません",
+  "notFoundTitle": "404",
+  "notFoundMessage": "ページが見つかりません",
+  "offline": "オフラインのようです",
+  "offlineMessage": "インターネット接続を確認してください",
+  "tryAgain": "再試行"
+}

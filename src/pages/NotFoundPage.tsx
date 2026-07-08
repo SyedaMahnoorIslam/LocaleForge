@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
@@ -7,15 +8,22 @@ export function NotFoundPage() {
   const { t } = useTranslation(['common', 'errors']);
 
   return (
-    <div className="grid min-h-[calc(100vh-4rem)] place-items-center px-4 py-10">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="grid min-h-[calc(100vh-8rem)] place-items-center px-4 py-10"
+    >
       <Card className="max-w-xl text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary dark:text-sky-300">{t('errors.notFoundTitle')}</p>
-        <h1 className="mt-4 text-4xl font-semibold text-slate-900 dark:text-slate-100">{t('errors.notFoundMessage')}</h1>
-        <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">{t('errors.offlineMessage')}</p>
-        <Link to="/">
-          <Button className="mt-6">{t('common.backHome')}</Button>
+        <p className="text-sm font-bold uppercase tracking-[0.24em]" style={{ color: 'var(--locale-primary)' }}>
+          {t('errors.notFoundTitle')}
+        </p>
+        <h1 className="mt-4 text-4xl font-bold text-locale-text">{t('errors.notFoundMessage')}</h1>
+        <p className="mt-4 text-sm text-locale-text-secondary">{t('errors.offlineMessage')}</p>
+        <Link to="/" className="mt-6 inline-block">
+          <Button>{t('common.backHome')}</Button>
         </Link>
       </Card>
-    </div>
+    </motion.div>
   );
 }

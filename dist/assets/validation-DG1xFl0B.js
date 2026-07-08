@@ -1,0 +1,1 @@
+const i="このフィールドは必須です",n="有効なメールアドレスを入力してください",a="最低{{min}}文字必要です",s="パスワードが一致しません",t={required:i,invalidEmail:n,minLength:a,passwordMismatch:s};export{t as default,n as invalidEmail,a as minLength,s as passwordMismatch,i as required};

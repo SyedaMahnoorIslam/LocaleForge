@@ -1,0 +1,1 @@
+const n="الصفحة غير موجودة",o="404",t="الصفحة غير موجودة",e="يبدو أنك غير متصل بالإنترنت",s="تحقق من اتصالك بالإنترنت",f="حاول مرة أخرى",a={notFound:n,notFoundTitle:o,notFoundMessage:t,offline:e,offlineMessage:s,tryAgain:f};export{a as default,n as notFound,t as notFoundMessage,o as notFoundTitle,e as offline,s as offlineMessage,f as tryAgain};

@@ -1,0 +1,9 @@
+{
+  "emailLabel": "Dirección de correo electrónico",
+  "emailPlaceholder": "tu@ejemplo.com",
+  "passwordLabel": "Contraseña",
+  "passwordPlaceholder": "Ingresa tu contraseña",
+  "nameLabel": "Nombre completo",
+  "namePlaceholder": "Juan Pérez",
+  "searchPlaceholder": "Buscar proyectos..."
+}

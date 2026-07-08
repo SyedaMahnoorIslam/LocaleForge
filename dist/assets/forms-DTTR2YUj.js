@@ -1,0 +1,1 @@
+const e="Search projects…",a="Email address",r="Create a strong password",s={searchPlaceholder:e,emailPlaceholder:a,passwordPlaceholder:r};export{s as default,a as emailPlaceholder,r as passwordPlaceholder,e as searchPlaceholder};

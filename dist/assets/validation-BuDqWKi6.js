@@ -1,0 +1,1 @@
+const i="هذا الحقل مطلوب",n="الرجاء إدخال عنوان بريد إلكتروني صالح",a="يجب أن يكون {{min}} حرفاً على الأقل",s="كلمات المرور غير متطابقة",t={required:i,invalidEmail:n,minLength:a,passwordMismatch:s};export{t as default,n as invalidEmail,a as minLength,s as passwordMismatch,i as required};
